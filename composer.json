@@ -4,7 +4,7 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
+        "psr-0": { "": ["src/", "features/bootstrap/"], "SymfonyStandard": "app/" }
     },
     "require": {
         "php": ">=5.3.3",
@@ -20,7 +20,11 @@
         "incenteev/composer-parameter-handler": "~2.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "behat/symfony2-extension": "*",
+        "behat/mink-browserkit-driver": "*",
+        "behat/mink-extension": "*",
+        "behat/mink-selenium2-driver": "*"
     },
     "scripts": {
         "post-root-package-install": [

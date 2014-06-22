@@ -1,0 +1,18 @@
+default:
+    paths:
+        features:   features                            # The folder where the features are stored
+    context:
+        class:      FeatureContext                      # The context class
+    extensions:
+        Behat\Symfony2Extension\Extension:              # Settings for the symfony extension
+            mink_driver:        true                    # Enable mink driver
+            kernel:
+                env:    test
+                debug:  true
+        Behat\MinkExtension\Extension:                  # Mink configuration
+            base_url:           http://localhost:8000   # PHP built-in server url
+            default_session:    symfony2                # Use symfony webdriver for standard tests
+            browser_name:       firefox                 # Use firefox when running test via the selenium driver
+            javascript_session: selenium2               # Use selenium driver with javascript scenarios
+            selenium2:
+                wd_host:        http://127.0.0.1:4444/wd/hub # Selenium url
