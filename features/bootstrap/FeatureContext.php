@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 /**
  * Features context.
  */
-class FeatureContext extends BehatContext implements KernelAwareInterface
+class FeatureContext extends \Behat\MinkExtension\Context\MinkContext implements KernelAwareInterface
 {
     /**
      * Initializes context.
