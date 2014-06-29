@@ -19,7 +19,7 @@ before_script:
   - "export DISPLAY=:99.0"
   - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
   - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
-  - php app/console server:run > /dev/null
+  - "php app/console server:run > /dev/null &"
   - sleep 5
 
 script:
