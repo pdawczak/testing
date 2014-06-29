@@ -15,4 +15,4 @@ default:
             browser_name:       firefox                 # Use firefox when running test via the selenium driver
             javascript_session: selenium2               # Use selenium driver with javascript scenarios
             selenium2:
-                wd_host:        http://127.0.0.1:4444/wd/hub # Selenium url
+                wd_host:        http://testing.dev:4444/wd/hub # Selenium url
