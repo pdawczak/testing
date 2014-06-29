@@ -13,6 +13,7 @@ Feature: Adding numbers
   @javascript
   Scenario:
     Given I am on homepage
+    And print last response
     When I fill in "Number 1" with "2"
     And I fill in "Number 2" with "3"
     And I press "Calculate"
