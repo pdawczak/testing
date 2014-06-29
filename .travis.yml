@@ -10,5 +10,5 @@ php:
 before_script: composer install -n
 
 script:
-  - ./bin/phpspec run
-  - ./bin/behat
+  - php bin/phpspec run
+  - php bin/behat --stop-on-failure
