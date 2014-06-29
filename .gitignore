@@ -11,4 +11,4 @@
 /composer.phar
 .idea/
 /web/assets/vendor
-!/web/assets/vendor
+!/web/assets/vendor/.gitkeep
