@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 /**
  * Features context.
  */
-class FeatureContext extends BehatContext implements KernelAwareInterface
+class FeatureContext extends \Behat\MinkExtension\Context\MinkContext implements KernelAwareInterface
 {
     /**
      * Initializes context.
@@ -41,5 +41,13 @@ class FeatureContext extends BehatContext implements KernelAwareInterface
     {
         $this->kernel = $kernel;
         $this->container = $kernel->getContainer();
+    }
+
+    /**
+     * @Given /^I wait for the answer$/
+     */
+    public function iWaitForTheAnswer()
+    {
+        $this->getSession()->wait(3000, '(0 === jQuery.active)');
     }
 }

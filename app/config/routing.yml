@@ -1,0 +1,5 @@
+app_calculator:
+    resource: "@AppCalculatorBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

@@ -1,12 +1,21 @@
 language: php
 
 php:
-  - 5.3.3
-  - 5.3
   - 5.4
   - 5.5
   - 5.6
 
-before_script: composer install -n
+before_script:
+  - npm install -g bower
+  - bower install
+  - composer install -n
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=:99.0"
+  - "wget http://selenium.googlecode.com/files/selenium-server-standalone-2.31.0.jar"
+  - "java -jar selenium-server-standalone-2.31.0.jar > /dev/null &"
+  - "php app/console server:run > /dev/null &"
+  - sleep 5
 
-script: phpunit -c app
+script:
+  - php bin/phpspec run
+  - php bin/behat --stop-on-failure

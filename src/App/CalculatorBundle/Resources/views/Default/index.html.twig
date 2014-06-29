@@ -1,0 +1,31 @@
+{% extends 'AppCalculatorBundle::layout.html.twig' %}
+
+{% block content %}
+    <form action="{{ path('app_calculator_calculate') }}" id="calculator_form" method="post">
+        {{ form_row(form.number_1) }}
+        {{ form_row(form.number_2) }}
+
+        <button>Calculate</button>
+    </form>
+
+    <div id="answer"></div>
+{% endblock content %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(document).on('submit', '#calculator_form', function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    method: $(this).attr('method'),
+                    success: function (response) {
+                        $('#answer').html(response);
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock javascript %}
